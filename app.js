@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -14,7 +15,7 @@ app.use(express.static("public"));
 //"mongodb://localhost:27017/todoListDB"
 
 mongoose.connect(
-  "mongodb+srv://admin:admin123@cluster0.8bzgp.mongodb.net/tododb?retryWrites=true&w=majority",
+  process.env.MONGODB_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
